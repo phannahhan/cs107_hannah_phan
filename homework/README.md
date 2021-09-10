@@ -12,7 +12,7 @@ What is the point of this README file?
 
 Here's a table of my favorite fruits ranked on certain characteristics out of 5
 |Fruit    |Portability|Non-Tartness|Non-Stuck-in-my-teeth-ness|
-|---------|:---------:|:----------:|-------------------------:|
+|---------|:---------:|:----------:|:------------------------:|
 |Mango    | 4         |5           |3                         |
 |Cherry   | 5         |2           |5                         |
 |Cherimoya| 5         |4           |5                         |
