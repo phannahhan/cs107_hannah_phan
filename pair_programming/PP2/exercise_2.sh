@@ -1,4 +1,4 @@
 #!/bin/env bash -e
-# Code: Hannah
+# Coder: Hannah
 
 find . -type f | ls -l | grep "^-..x......"
