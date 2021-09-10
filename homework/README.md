@@ -1,6 +1,6 @@
 # Homework Directory
 ## Welcome to my homework directory
-What is the point of this README file?
+### What is the point of this README file?
 ======================================
 1. To provide a written overview of the contents of my homework directory
 	* I may explain how I label files
