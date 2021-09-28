@@ -1,5 +1,4 @@
-# Playground Changed
-
-A place to play with `git`.
-
-### Fall 2021
+## Content
+* lectures: these are lecture slides from class
+* homeworks: this contains directories for specific homework assignments
+* pair_programming: this contains directories for pair_programming assignments
