@@ -1,1 +1,5 @@
-homework/.DS_Store
+# macOS
+*.DS_Store
+
+# output
+*.txt
