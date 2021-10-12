@@ -50,7 +50,7 @@ plt.legend()
 
 plt.xlabel("Alpha")
 plt.ylabel("R-Squared")
-plt.ylim([0, 1])
+#plt.ylim([0, 1])
 plt.title('Model Performance for Linear vs Ridge Model for Different Alphas')
 plt.show(block = True)
 
