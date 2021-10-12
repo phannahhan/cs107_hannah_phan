@@ -62,17 +62,24 @@ class LinearRegression(Regression):
         
     def fit(self, X, y):
         # append a column of 1's with the same # of rows as X to X to create the intercept, pass as a tuple
-        new_column = np.ones((X.shape[0], 1))
+        #new_column = np.ones((X.shape[0], 1))
         
         # append column to front of X, X now will have shape (353,11)
-        X = np.append(new_column, X, axis = 1)
+        #X = np.append(new_column, X, axis = 1)
+        
+        Xmean = np.mean(X, axis=0)
+        scale = 1 / np.sqrt(np.sum((X - Xmean)**2, axis=0))
+        Xs = X * scale
+        
+        new_column = np.ones((Xs.shape[0], 1))
+        Xs = np.append(new_column, Xs, axis = 1)
         
         # need to create dictionary here because we don't have data to make it in the constructor
         # best_fit_coeff is a vector with 11 rows (11,)
-        best_fit_coeff = (pinv(X.transpose()@X)@X.transpose())@y
+        best_fit_coeff = (pinv(Xs.transpose()@Xs)@Xs.transpose())@y
         
         # params = {"best_fit_coeff": best_fit_coeff, "intercept": X[0]}
-        params = {"best_fit_coeff": best_fit_coeff[1:], "intercept": best_fit_coeff[0]}
+        params = {"best_fit_coeff": best_fit_coeff[1:]*scale, "intercept": best_fit_coeff[0]}
         self.params = params
 
 
