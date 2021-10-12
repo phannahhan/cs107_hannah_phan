@@ -97,16 +97,20 @@ class RidgeRegression(LinearRegression):
         
     def fit(self, X, y):
         # append a column of 1's with the same # of rows as X to X to create the intercept
+        Xmean = np.mean(X, axis=0)
+        scale = 1 / np.sqrt(np.sum((X - Xmean)**2, axis=0))
+        Xs = X * scale
         
-        new_column = np.ones((X.shape[0], 1))
-        X = np.append(new_column, X, axis = 1)
+        new_column = np.ones((Xs.shape[0], 1))
+        Xs = np.append(new_column, Xs, axis = 1)
         
         # how to pull alpha to make gamma? Can we get it from set_params? Yes
         # what shape should gamma have? X^T*X will be pxp, so gamma will be pxp
-        gamma = self.alpha*np.identity(np.shape(X)[1]) 
+        gamma = self.alpha*np.identity(np.shape(Xs)[1]) 
+        gamma[0, 0] = 0
         
-        best_fit_coeff = (pinv(X.transpose()@X + gamma.transpose()@gamma)@X.transpose())@y
-        params = {"best_fit_coeff": best_fit_coeff[1:], "intercept": best_fit_coeff[0]}
+        best_fit_coeff = (pinv(Xs.transpose()@Xs + gamma.transpose()@gamma))@Xs.transpose()@y
+        params = {"best_fit_coeff": best_fit_coeff[1:]*scale, "intercept": best_fit_coeff[0]}
         self.params = params
         
 
