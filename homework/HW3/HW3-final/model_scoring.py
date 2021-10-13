@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+#!/usr/bin/env python
+# coding: utf-8
+
 # In[19]:
 
 
@@ -8,6 +14,8 @@
 # import Regression as Rg 
 import numpy as np
 import Regression as Rg
+import sklearn.linear_model
+import sklearn.datasets
 
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
@@ -38,6 +46,6 @@ for model in models:
     model.set_params(alpha=0.1)
     model.fit(X_train, y_train);
     model.score(X_test, y_test)
-    print(f"{model} Score: {model.score(X_test, y_test)}")
+    print(f"{type(model).__name__} Score: {model.score(X_test, y_test)}")
 print(ridge_rg.get_params())
 
