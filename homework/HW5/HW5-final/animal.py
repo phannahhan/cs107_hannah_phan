@@ -32,8 +32,7 @@ class Animal:
         try:
             assert into in Animal.valid_species, f'invalid species: {into}'
         except Exception as e:
-            print(e)
-            
+            print(e)           
         self._species = into
 #         assert into in Animal.valid_species, Exception(f'invalid species: {into}')
 #         self.species = into
