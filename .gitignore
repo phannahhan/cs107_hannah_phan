@@ -3,7 +3,6 @@
 *.DS_Store
 
 # output
-*.txt
 
 # ipynb
 *.ipynb
